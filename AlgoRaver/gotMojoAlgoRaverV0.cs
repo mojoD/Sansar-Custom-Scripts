@@ -185,7 +185,8 @@ public class Beats : SceneObjectScript
 
     public interface SendSamples
     {
-        List<SoundResource> SendSampleLibrary { get; } }
+        List<SoundResource> SendSampleLibrary { get; }
+ }
 
     private void getSamples(ScriptEventData gotSamples)
     {
@@ -209,13 +210,15 @@ public class Beats : SceneObjectScript
             SampleLibrary.Add(tempSample);
             Errors = Errors + ", " + tempSample.GetName();
             cntr++;
-        } while (cntr < sendSamples.SendSampleLibrary.Count());    }
+        } while (cntr < sendSamples.SendSampleLibrary.Count());
+    }
 
     public List<string>[] InstrumentArray = new List<string>[99];
 
     public interface SendInstrument
     {
-        List<string> SendInstrumentArray { get; }  }
+        List<string> SendInstrumentArray { get; }
+  }
 
     private void getInstrument(ScriptEventData gotInstrument)
     {
@@ -339,7 +342,8 @@ public class Beats : SceneObjectScript
             cntr++;
         } while (cntr < Tempcmds.Count);
 
-        return TempSamples;    }
+        return TempSamples;
+    }
 
     private float BuildVolume(string InString)
     {
@@ -368,7 +372,8 @@ public class Beats : SceneObjectScript
         float fltPan = float.Parse(strPan);
         Vector PanPos = new Vector(fltPan, 0.0f, 0.0f);
         PanPos = CurPos + PanPos;
-        return PanPos; }
+        return PanPos;
+ }
 
     private float BuildPitchShift(string InString)
     {
@@ -380,7 +385,8 @@ public class Beats : SceneObjectScript
         int next = chunk.IndexOf(")", StringComparison.CurrentCulture);
         string strPitch = chunk.Substring(6, next - 6);
         float fltPitch = float.Parse(strPitch);
-        return fltPitch;       }
+        return fltPitch;
+       }
 
 #endregion
 
@@ -780,7 +786,8 @@ public class Beats : SceneObjectScript
             }
             x++;
         } while (x < validNotes.Count());
-        return noteTest;   }
+        return noteTest;
+   }
 
     private List<int> BuildNotes(List<string> Tempcmds)
     {
@@ -909,7 +916,8 @@ public class Beats : SceneObjectScript
             } while (octcntr < octaves-1);
         }
 
-        return intTempNotes;   }
+        return intTempNotes;
+   }
 
     private double RateToPitch(double rateIn)
     {
@@ -1037,7 +1045,8 @@ public class Beats : SceneObjectScript
             cntr++;
         } while (cntr < Tempcmds.Count);
 
-        return TempMilliSeconds;   }
+        return TempMilliSeconds;
+   }
 
     private float BuildTotalTime(List<float> TimingArray)
     {
@@ -1049,7 +1058,8 @@ public class Beats : SceneObjectScript
             totalLoopTime = totalLoopTime + TimingArray[cntr] + 10;  //Add back in the 10 milliseconds
             cntr++;
         } while (cntr < TimingArray.Count);
-        return totalLoopTime;  }
+        return totalLoopTime;
+  }
 
     private List<char> BuildSequence(List<string> Tempcmds)
     {
@@ -1065,7 +1075,8 @@ public class Beats : SceneObjectScript
             else if  (cmdline.Contains("beats")) TempSequence.Add(b);
             cntr++;
         } while (cntr < Tempcmds.Count);
-        return TempSequence;   }
+        return TempSequence;
+   }
 
     #endregion
 

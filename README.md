@@ -11,3 +11,4 @@ This repository has my code I have been doing inside of the Linden Labs Project 
 
 **Media Screen** - This is a full featured media screen that allows you to control content on a media surface in Sansar.  See Wiki for a detailed description of it's many features.
 
+**Instruments** - Stand Alone Musical Instruments that you can play in Sansar.
